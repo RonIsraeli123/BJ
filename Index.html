@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>BJ</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.4/dist/semantic.min.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Index.css'>
+</head>
+<body>
+    <div class="header">
+        <h1>BJ Game</h1>
+    </div>
+    <div class="wrapper">
+        <h3 id="letsP" >Let's Play</h3>
+        <div class="ui equal width center aligned padded grid contain">
+
+
+            <div class="row GamePlace">
+
+                <div class=" column bord">
+                    <h3 id="sumPlayer">Your Sum-</h3>
+                    <div id="playerCards" class="player Cards ">
+                        
+                    </div>
+                </div>
+
+                <div class=" column bord">
+                    <h3 id="sumBot">Dealer Sum-</h3>
+                    <div  id="botCards" class="bot Cards">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row actions teal" >
+                
+                
+                <div class=" column ">                      
+                    <input type="number"  id="inputMoney" class="inputBit" placeholder="0">  
+                    <h4 id="profit">0</h4>                  
+                </div>  
+
+                <div class=" column ">                      
+                    <div class="buttons">
+                        <button onclick="addCardPlayer()" id="hit" class="ui blue button" disabled>Hit</button>
+                        <button  onclick="Stand()" id="stand" class="ui yellow button" disabled>Stand</button>
+                        <button onclick="dealF()" id="Deal" class="ui red button dealB">Deal</button>
+                    </div>
+                </div>
+
+                <div class=" column ">                    
+                    <button id="Reset" onclick="resetF()" class="ui button black resetB ">Reset</button>
+                </div>              
+
+            </div>
+
+            <div class="row results" >
+                <label id="lost"  class=" column " >
+                        <h2>Lost-</h2>
+                        <h4 id="losts" > 0</h4>
+                </label>  
+
+                <label   class=" column " >
+                    <h2>Your Money-</h2>
+                    <h2 id="Money" >200</h2>
+                </label>    
+
+                <label id="win"  class=" column " >
+                    <h2>Win-</h2>
+                    <h4 id="wins" >0</h4>
+                </label>
+
+            </div>                       
+            
+                
+        </div>
+
+    </div>
+<script src='Index.js'></script>
+<script src='loan.js'></script>
+
+</body>
+</html>
