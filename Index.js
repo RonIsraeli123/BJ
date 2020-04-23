@@ -1,12 +1,10 @@
 let sumPlayerNum=0;
 let sumBotNum=0;
-
 const LostSound = new Audio('sounds/aww.mp3');
 const WinSound = new Audio('sounds/cash.mp3');
 const HitSound = new Audio('sounds/swish.m4a');
-
-
-let moneyPlayersHave; 
+document.cookie=200;
+document.getElementById("Money").innerHTML= document.cookie; 
 let bitMoneyNum;
 let sumProfit=parseInt(document.getElementById("profit").textContent);
 
@@ -42,9 +40,8 @@ async  function Stand()
 function dealF()
 {
 
-    moneyPlayersHave=parseInt(document.getElementById("Money").textContent); 
      bitMoneyNum=parseInt(document.getElementById("inputMoney").value);
-    if(bitMoneyNum>0 && bitMoneyNum<=moneyPlayersHave)
+    if(bitMoneyNum>0 && bitMoneyNum<=document.cookie)
     {
         document.getElementById("Deal").disabled =true;   
         document.getElementById("hit").disabled =false;   
@@ -52,7 +49,7 @@ function dealF()
     }
     else
     {
-        if(bitMoneyNum>moneyPlayersHave)
+        if(bitMoneyNum>document.cookie)
         {
                 alert("You can't bet on less than what you have...");
                 if (window.confirm('you want to loan some money?')) 
@@ -180,7 +177,7 @@ function chackStatus(sumNumber)
 }
 
 function resetF()
-{
+{              
     document.getElementById("inputMoney").value= "";
     sumBotNum=0;
     document.getElementById("botCards").innerHTML= "";
@@ -211,9 +208,11 @@ function playerWon()
     else{
         alert("You Won, To play again click the Reset button");
     }
-    moneyPlayersHave+= bitMoneyNum;
-    document.getElementById("Money").innerHTML= moneyPlayersHave; 
-
+    var sumM=parseInt(document.cookie);
+    bitMoneyNum =parseInt(bitMoneyNum);
+    sumM += bitMoneyNum;
+    document.getElementById("Money").innerHTML = sumM.toString(); 
+    document.cookie=sumM;
     sumProfit+=bitMoneyNum;
     document.getElementById("profit").innerHTML = sumProfit;
     document.getElementById("profit").style.backgroundColor = "green";
@@ -240,8 +239,8 @@ function playerLost()
         alert("You Lost, To play again click the Reset button");
     }   
 
-    moneyPlayersHave-=bitMoneyNum;
-    document.getElementById("Money").innerHTML= moneyPlayersHave; 
+    document.cookie-=bitMoneyNum;
+    document.getElementById("Money").innerHTML= document.cookie; 
 
     sumProfit-=bitMoneyNum;
     document.getElementById("profit").innerHTML = sumProfit;
